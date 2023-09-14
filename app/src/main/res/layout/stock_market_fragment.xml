@@ -56,5 +56,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/txtBseIndexValue"
+        app:layout_constraintLeft_toLeftOf="@id/txtBseIndexValue"
+        android:text="Stop"
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

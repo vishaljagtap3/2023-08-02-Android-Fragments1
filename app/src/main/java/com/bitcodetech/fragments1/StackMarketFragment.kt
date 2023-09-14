@@ -15,6 +15,7 @@ import kotlin.random.Random
 class StackMarketFragment : Fragment() {
 
     private lateinit var binding: StockMarketFragmentBinding
+    private var state = true
 
     private var bseIndexValue = 66000
         set(value) {
@@ -37,6 +38,10 @@ class StackMarketFragment : Fragment() {
             inflater.inflate(R.layout.stock_market_fragment, null)
         )
 
+        binding.btnStop.setOnClickListener {
+            state = false
+        }
+
         //Start a thread
         StockMarketThread().execute(null)
 
@@ -44,11 +49,14 @@ class StackMarketFragment : Fragment() {
     }
 
     private inner class StockMarketThread : AsyncTask<Any, Int, Any>() {
-        override fun doInBackground(vararg p0: Any?): Any {
-            while (true) {
+
+        override fun doInBackground(vararg p0: Any?): Any? {
+            while (state) {
                 Thread.sleep(1000)
                 publishProgress(null)
             }
+
+            return null
         }
 
         override fun onProgressUpdate(vararg values: Int?) {

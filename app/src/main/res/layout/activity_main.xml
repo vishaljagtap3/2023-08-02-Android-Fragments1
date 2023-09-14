@@ -9,7 +9,13 @@
 
     <fragment
         android:name="com.bitcodetech.fragments1.StackMarketFragment"
-        android:id="@+id/stockMarketFragment"
+        android:id="@+id/stockMarketFragment1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <fragment
+        android:name="com.bitcodetech.fragments1.StackMarketFragment"
+        android:id="@+id/stockMarketFragment2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>
