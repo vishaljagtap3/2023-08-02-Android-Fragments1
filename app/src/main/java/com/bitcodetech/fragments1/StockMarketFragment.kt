@@ -5,17 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager.LayoutParams
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.bitcodetech.fragments1.databinding.StockMarketFragmentBinding
-import kotlin.math.absoluteValue
 import kotlin.random.Random
 
-class StackMarketFragment : Fragment() {
+class StockMarketFragment : Fragment() {
 
     private lateinit var binding: StockMarketFragmentBinding
-    private var state = true
+    var state = true
+    set(value) {
+        if(!field && value) {
+            field = value
+            StockMarketThread().execute(null)
+        }
+        if(!value) {
+            field = value
+        }
+    }
 
     private var bseIndexValue = 66000
         set(value) {
